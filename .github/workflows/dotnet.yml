@@ -20,13 +20,14 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run:  dotnet publish --configuration "Debug" --framework "net5.0"  --runtime linux-x64 --self-contained false
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Get current date
       id: date
-      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
-      
+      run: echo "::set-output name=date::$(date +'%Y-%m-%d-%H-%M')"
+    - name: Generate deployment package
+      run: cd bin/Debug/net5.0/linux-x64/publish; zip -r deploy.zip . -x '*.git*'
     - name: Deploy to EB
       uses: einaregilsson/beanstalk-deploy@v20
       with:
@@ -35,5 +36,5 @@ jobs:
         application_name: LearningPipelin2
         environment_name: LearningPipelin2-master
         version_label: ${{ steps.date.outputs.date }}
-        region: us-west-2
-        deployment_package: deploy.zip
+        region: us-east-1
+        deployment_package: bin/Debug/net5.0/linux-x64/publish/deploy.zip
