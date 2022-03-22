@@ -36,5 +36,5 @@ jobs:
         application_name: LearningPipelin2
         environment_name: LearningPipelin2-master
         version_label: ${{ steps.date.outputs.date }}
-        region: us-west-2
+        region: us-east-1
         deployment_package: deploy.zip
