@@ -19,7 +19,7 @@ jobs:
         dotnet-version: 5.0.x
     - name: Environment Name
       id: envname
-      run: echo "::set-output name=envname::'LearningPipelin2-${GITHUB_REF##*/})"
+      run: echo "::set-output name=envname::LearningPipelin2-${GITHUB_REF##*/})"
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
