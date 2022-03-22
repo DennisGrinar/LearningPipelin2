@@ -37,4 +37,4 @@ jobs:
         environment_name: LearningPipelin2-master
         version_label: ${{ steps.date.outputs.date }}
         region: us-east-1
-        deployment_package: deploy.zip
+        deployment_package: bin/Debug/net5.0/linux-x64/publish/deploy.zip
