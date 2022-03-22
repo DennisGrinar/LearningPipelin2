@@ -27,7 +27,7 @@ jobs:
       id: date
       run: echo "::set-output name=date::$(date +'%Y-%m-%d-%H-%M')"
     - name: Generate deployment package
-      run: zip -r deploy.zip .bin/Debug/net5.0/linux-x64/publish -x '*.git*'
+      run: zip -r deploy.zip /bin/Debug/net5.0/linux-x64/publish -x '*.git*'
     - name: Deploy to EB
       uses: einaregilsson/beanstalk-deploy@v20
       with:
