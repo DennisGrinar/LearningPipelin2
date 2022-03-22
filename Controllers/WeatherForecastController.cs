@@ -13,7 +13,7 @@ namespace LearningPipelin2.Controllers
     {
         private static readonly string[] Summaries = new[]
         {
-            "HOT AS HELL", "FRICKIN COLD"
+            "HOT AS HELL"
             //"Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
