@@ -18,7 +18,7 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Environment Name
-      run: echo ${GITHUB_REF##*/}
+      run: echo LearningPipelin2-:${GITHUB_REF##*/}
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
